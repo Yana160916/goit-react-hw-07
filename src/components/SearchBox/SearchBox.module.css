@@ -1,0 +1,13 @@
+.formContainer {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer input{
+    border: 1px solid #111;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    width: 342px;
+}

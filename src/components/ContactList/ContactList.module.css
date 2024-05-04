@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contactContainer {
+    border: 1px solid #000000;
+    width: auto;
+    margin-right: 10px;
+    display: block;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.contactContainer p {
+    display: flex;
+    gap: 10px;
+}
