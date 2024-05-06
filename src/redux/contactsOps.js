@@ -1,24 +1,26 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import {
-  setContactsLoading,
-  setContactsError,
-} from "../redux/contactsSlice.js";
 
 const API_URL = "https://6635f12c415f4e1a5e25c4e7.mockapi.io/contacts";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
-    thunkAPI.dispatch(setContactsLoading(true));
+    thunkAPI.dispatch({ type: "contacts/setContactsLoading", payload: true });
     try {
       const response = await axios.get(API_URL);
       return response.data;
     } catch (error) {
-      thunkAPI.dispatch(setContactsError(error.message));
+      thunkAPI.dispatch({
+        type: "contacts/setContactsError",
+        payload: error.message,
+      });
       return thunkAPI.rejectWithValue(error.message);
     } finally {
-      thunkAPI.dispatch(setContactsLoading(false));
+      thunkAPI.dispatch({
+        type: "contacts/setContactsLoading",
+        payload: false,
+      });
     }
   }
 );
